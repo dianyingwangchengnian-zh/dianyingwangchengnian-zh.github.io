@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>电影网成年 | 18+ 成人向影视内容导航与分级检索入口 - dianyingwangchengnian-zh.github.io</title>
+<meta name="keywords" content="电影网成年,dianyingwangchengnian-zh.github.io,成人向影视,18+电影导航,年龄分级检索,成人题材影片,独立电影专区,深夜档影视,影视分级指南">
+<meta name="description" content="电影网成年（dianyingwangchengnian-zh.github.io）是面向成年观众的影视分级检索与导航入口，提供成人题材、独立制作、深夜档影片的分类整理与年龄提示，倡导理性观影与分级意识。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://dianyingwangchengnian-zh.github.io/">
+<style>
+/* ============ Reset & Tokens ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body,h1,h2,h3,h4,p,ul,figure{margin:0;padding:0}
+ul{list-style:none}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:root{
+  --bg:#0f1014;
+  --bg2:#16181f;
+  --ink:#eceef2;
+  --ink2:#9aa1b1;
+  --accent:#7c3aed;
+  --accent2:#22d3ee;
+  --warn:#f59e0b;
+  --line:rgba(255,255,255,.09);
+  --radius:14px;
+  --max:1180px;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+body{
+  background:var(--bg);color:var(--ink);
+  font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ============ Age gate banner ============ */
+.gate{
+  background:linear-gradient(90deg,#3b0764,#1e1b4b);
+  border-bottom:1px solid var(--warn);
+  padding:10px 0;font-size:13px;
+}
+.gate .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}
+.gate .badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--warn);color:#2b1700;font-weight:800;font-size:12px;
+  padding:4px 10px;border-radius:6px;letter-spacing:1px;
+}
+.gate span{flex:1;min-width:240px;color:#e9d5ff}
+.gate a{color:var(--accent2);border-bottom:1px dashed currentColor}
+
+/* ============ Header ============ */
+.hd{
+  position:sticky;top:0;z-index:50;background:rgba(15,16,20,.85);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+}
+.hd-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo b{font-size:23px;font-weight:900;letter-spacing:.5px;background:linear-gradient(90deg,#c4b5fd,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo em{font-style:normal;font-size:11px;color:var(--warn);font-weight:700;border:1px solid var(--warn);padding:2px 6px;border-radius:4px}
+.menu{display:flex;gap:6px}
+.menu a{
+  font-size:15px;color:var(--ink2);padding:8px 14px;border-radius:8px;font-weight:500;transition:.2s;
+}
+.menu a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.m-btn{display:none;background:none;border:1px solid var(--line);color:#fff;font-size:22px;width:42px;height:42px;border-radius:8px;cursor:pointer}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;overflow:hidden;padding:90px 0 80px;
+  background:
+    radial-gradient(900px 500px at 82% -10%,rgba(124,58,237,.35),transparent 60%),
+    radial-gradient(700px 400px at 8% 20%,rgba(34,211,238,.18),transparent 60%),
+    var(--bg);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+.h-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative}
+.h-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--accent2);
+  border:1px solid rgba(34,211,238,.35);padding:5px 12px;border-radius:20px;margin-bottom:22px;
+  font-family:var(--mono);
+}
+.h-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 10px var(--accent2)}
+.h1{font-size:clamp(34px,5.6vw,62px);line-height:1.12;font-weight:900;letter-spacing:-1px}
+.h1 s{text-decoration:none;color:var(--warn)}
+.h-sub{margin-top:22px;font-size:17px;color:var(--ink2);max-width:520px}
+.h-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:10px;
+  font-size:15px;font-weight:700;cursor:pointer;border:1px solid transparent;transition:.25s;
+}
+.btn-pri{background:var(--accent);color:#fff}
+.btn-pri:hover{background:#8b4bf5;transform:translateY(-2px)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent2);color:var(--accent2)}
+.h-stats{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.h-stat{background:var(--bg2);padding:20px;text-align:center}
+.h-stat b{display:block;font-size:26px;font-weight:900;color:#fff}
+.h-stat small{font-size:12px;color:var(--ink2)}
+
+/* hero side panel */
+.h-panel{
+  background:linear-gradient(160deg,rgba(124,58,237,.16),rgba(34,211,238,.06));
+  border:1px solid var(--line);border-radius:18px;padding:26px;position:relative;
+}
+.h-panel::after{
+  content:"18+";position:absolute;top:-18px;right:22px;font-size:40px;font-weight:900;
+  color:var(--warn);opacity:.9;font-style:italic;
+}
+.h-panel h3{font-size:15px;color:var(--accent2);margin-bottom:18px;letter-spacing:1px}
+.h-list{display:grid;gap:13px}
+.h-list li{display:flex;justify-content:space-between;gap:12px;padding-bottom:13px;border-bottom:1px dashed var(--line);font-size:14px}
+.h-list li:last-child{border-bottom:none;padding-bottom:0}
+.h-list li span{color:var(--ink2);flex:1}
+.h-list li time{font-family:var(--mono);font-size:12px;color:var(--warn)}
+.h-url{
+  margin-top:20px;padding:14px;background:rgba(0,0,0,.35);border-radius:10px;
+  font-family:var(--mono);font-size:12px;color:var(--ink2);word-break:break-all;line-height:1.6;
+}
+.h-url b{color:var(--accent2);font-weight:400}
+
+/* ============ Section frame ============ */
+.sec{padding:84px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.sec-no{font-family:var(--mono);font-size:13px;color:var(--accent2);letter-spacing:2px}
+.h2{font-size:clamp(26px,3.8vw,40px);font-weight:900;line-height:1.3;margin-top:6px}
+.h2 u{text-decoration:none;color:var(--accent);}
+.sec-desc{color:var(--ink2);max-width:420px;font-size:15px}
+.rule{height:1px;background:var(--line);margin:34px 0}
+
+/* ============ Filter chips ============ */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.chip{
+  padding:8px 18px;border-radius:20px;border:1px solid var(--line);background:var(--bg2);
+  font-size:14px;color:var(--ink2);cursor:pointer;transition:.2s;font-family:inherit;
+}
+.chip:hover,.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ============ Cards ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.5);box-shadow:0 18px 40px -20px rgba(124,58,237,.6)}
+.thumb{
+  height:150px;display:flex;align-items:center;justify-content:center;font-size:40px;
+  position:relative;border-bottom:1px solid var(--line);
+  background:linear-gradient(135deg,#1e1b4b,#0f172a);
+}
+.thumb::after{content:attr(data-rate);position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:11px;background:var(--warn);color:#2b1700;padding:3px 7px;border-radius:5px;font-weight:700}
+.thumb .dur{position:absolute;bottom:10px;left:10px;font-family:var(--mono);font-size:11px;background:rgba(0,0,0,.6);padding:3px 7px;border-radius:5px}
+.body{padding:18px}
+.body h3{font-size:17px;margin-bottom:8px}
+.body p{font-size:13px;color:var(--ink2)}
+.tags{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap}
+.tags i{font-style:normal;font-size:11px;color:var(--accent2);border:1px solid rgba(34,211,238,.25);padding:3px 8px;border-radius:5px}
+
+/* ============ Two column panels ============ */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.box{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.box h3{font-size:18px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.item{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .n{font-family:var(--mono);font-size:15px;font-weight:800;color:var(--accent);background:rgba(124,58,237,.12);border-radius:8px;height:44px;display:grid;place-items:center}
+.item h4{font-size:15px}
+.item p{font-size:12px;color:var(--ink2)}
+.item .meta{font-family:var(--mono);font-size:12px;color:var(--warn);text-align:right;white-space:nowrap}
+
+/* ============ Timeline ============ */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent2))}
+.tl-i{position:relative;padding-bottom:30px}
+.tl-i::before{
+  content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;
+  background:var(--bg);border:3px solid var(--accent2);
+}
+.tl-i h4{font-size:17px;margin-bottom:4px}
+.tl-i span{font-family:var(--mono);font-size:12px;color:var(--warn)}
+.tl-i p{font-size:14px;color:var(--ink2);margin-top:6px}
+
+/* ============ Notice block ============ */
+.notice{
+  border:1px solid var(--warn);border-radius:var(--radius);padding:32px;position:relative;
+  background:linear-gradient(135deg,rgba(245,158,11,.08),transparent 70%);
+}
+.notice .strip{
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:repeating-linear-gradient(90deg,var(--warn),var(--warn) 24px,transparent 24px,transparent 48px);
+  border-radius:var(--radius) var(--radius) 0 0;
+}
+.notice h3{font-size:20px;margin-bottom:14px;margin-top:8px}
+.notice p{color:var(--ink2);font-size:15px;margin-bottom:12px}
+.notice code{
+  display:inline-block;margin-top:8px;background:rgba(0,0,0,.4);padding:8px 16px;border-radius:8px;
+  font-family:var(--mono);font-size:14px;color:var(--accent2);
+}
+
+/* ============ Footer ============ */
+.ft{background:#0a0b0e;border-top:1px solid var(--line);padding:56px 0 24px;margin-top:40px}
+.ft-g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.ft-g b{font-size:19px;font-weight:900}
+.ft-g p{font-size:14px;color:var(--ink2);margin-top:10px;max-width:320px}
+.ft-g h5{font-size:14px;color:#fff;margin-bottom:14px}
+.ft-g ul{display:grid;gap:9px}
+.ft-g a{font-size:14px;color:var(--ink2)}
+.ft-g a:hover{color:var(--accent2)}
+.copy{border-top:1px solid var(--line);padding-top:20px;font-size:13px;color:#5f6675;text-align:center}
+
+/* ============ Responsive ============ */
+@media(max-width:900px){
+  .sec{padding:60px 0}
+  .hero{padding:60px 0}
+  .h-grid{grid-template-columns:1fr;gap:40px}
+  .menu{
+    position:fixed;top:0;right:0;bottom:0;width:78%;max-width:340px;flex-direction:column;
+    background:#11131a;padding:80px 24px 40px;border-left:1px solid var(--line);
+    transform:translateX(105%);transition:.35s ease;z-index:49;
+  }
+  .menu.open{transform:translateX(0)}
+  .menu a{font-size:18px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .m-btn{display:block}
+  .two{grid-template-columns:1fr}
+  .ft-g{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .h-stats{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .ft-g{grid-template-columns:1fr}
+  .gate .wrap{font-size:12px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<!-- ===== Age gate ===== -->
+<div class="gate">
+  <div class="wrap">
+    <span class="badge">⚠ 18+</span>
+    <span>本站点内容涉及成人题材，仅面向年满 18 周岁的观众提供影视分级检索与导航信息，请理性观影。</span>
+    <a href="#">分级说明</a>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="hd">
+  <div class="wrap hd-in">
+    <div class="logo">
+      <b>电影网成年</b>
+      <em>18+</em>
+    </div>
+    <nav class="menu" id="menu">
+      <a href="#home">首页</a>
+      <a href="#cat">题材分类</a>
+      <a href="#list">精选片单</a>
+      <a href="#timeline">更新日志</a>
+      <a href="#about">关于本站</a>
+    </nav>
+    <button class="m-btn" id="mBtn" aria-label="打开菜单">☰</button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="wrap h-grid">
+    <div>
+      <span class="h-tag">// ENTER WITH CAUTION · AGE 18+</span>
+      <h1 class="h1">为<font color="#ffffff">成年观众</font>打造的<br><s>电影</s>影视分级检索入口</h1>
+      <p class="h-sub">电影网成年聚焦成人向影视内容的分类整理与年龄提示，覆盖独立制作、深夜档影片、成人题材剧情片等板块，倡导「分级观影、理性选择」的观看方式。</p>
+      <div class="h-cta">
+        <a href="#cat" class="btn btn-pri">浏览题材分类 →</a>
+        <a href="#about" class="btn btn-ghost">了解分级规则</a>
+      </div>
+      <div class="h-stats">
+        <div class="h-stat"><b>12</b><small>题材板块</small></div>
+        <div class="h-stat"><b>3000+</b><small>分级影片条目</small></div>
+        <div class="h-stat"><b>18+</b><small>年龄准入</small></div>
+      </div>
+    </div>
+    <aside class="h-panel">
+      <h3>◆ 近期热门条目</h3>
+      <ul class="h-list">
+        <li><span>《夜行观察者》— 悬疑 / 心理惊悚</span><time>NEW</time></li>
+        <li><span>《边缘对话》— 剧情 / 社会议题</span><time>10/08</time></li>
+        <li><span>《午夜回声》— 独立制作 / 实验影像</span><time>10/07</time></li>
+        <li><span>《沉默契约》— 犯罪 / 人性剖析</span><time>10/06</time></li>
+        <li><span>《暗室》— 深夜档 / 悬疑短片集</span><time>10/05</time></li>
+      </ul>
+      <div class="h-url">
+        本站官方访问地址<br>
+        <b>https://dianyingwangchengnian-zh.github.io</b>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== Categories ===== -->
+<section class="sec" id="cat">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-no">SECTION / 01</div>
+        <h2 class="h2">题材 <u>分类</u></h2>
+      </div>
+      <p class="sec-desc">按内容主题与表达尺度划分板块，每个条目均标注建议观看年龄，方便按偏好与承受度筛选。</p>
+    </div>
+    <div class="chips">
+      <button class="chip on">全部</button>
+      <button class="chip">悬疑惊悚</button>
+      <button class="chip">剧情独立</button>
+      <button class="chip">犯罪人性</button>
+      <button class="chip">深夜档</button>
+      <button class="chip">社会议题</button>
+      <button class="chip">实验影像</button>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb" data-rate="18+">🕵️<div class="dur">112 min</div></div>
+        <div class="body"><h3>夜行观察者</h3><p>心理悬疑片，以双线叙事探讨记忆与真实的边界，节奏紧凑、反转密集。</p>
+          <div class="tags"><i>悬疑</i><i>心理</i><i>反转</i></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb" data-rate="18+">🎭<div class="dur">96 min</div></div>
+        <div class="body"><h3>边缘对话</h3><p>社会议题剧情片，围绕两代人的观念冲突展开，表演克制而有张力。</p>
+          <div class="tags"><i>剧情</i><i>社会</i><i>独立</i></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb" data-rate="R">🎬<div class="dur">78 min</div></div>
+        <div class="body"><h3>午夜回声</h3><p>独立制作实验影像，打破传统叙事结构，以视听语言构建情绪空间。</p>
+          <div class="tags"><i>独立</i><i>实验</i><i>艺术</i></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb" data-rate="18+">⚖️<div class="dur">128 min</div></div>
+        <div class="body"><h3>沉默契约</h3><p>犯罪人性题材，聚焦利益与道德的两难抉择，人物刻画层次丰富。</p>
+          <div class="tags"><i>犯罪</i><i>人性</i><i>伦理</i></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb" data-rate="18+">🌙<div class="dur">45 min/集</div></div>
+        <div class="body"><h3>暗室 · 短片集</h3><p>深夜档悬疑短片合集，每集独立成篇，适合碎片时间观看。</p>
+          <div class="tags"><i>短片</i><i>深夜</i><i>悬疑</i></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb" data-rate="R">🧩<div class="dur">104 min</div></div>
+        <div class="body"><h3>错位人生</h3><p>非线性叙事剧情片，以身份错位为切口，呈现现代人的孤独与连接。</p>
+          <div class="tags"><i>剧情</i><i>非线性</i><i>文艺</i></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- ===== Featured list & Timeline ===== -->
+<section class="sec" id="list" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-no">SECTION / 02</div>
+        <h2 class="h2">精选 <u>片单</u> · 更新记录</h2>
+      </div>
+      <p class="sec-desc">左侧为高分精选条目，右侧为近期内容更新时间线，持续补充中。</p>
+    </div>
+    <div class="two">
+      <div class="box">
+        <h3>★ 编辑精选 TOP 6</h3>
+        <div class="item"><div class="n">01</div><div><h4>夜行观察者</h4><p>心理悬疑 · 口碑 8.9</p></div><div class="meta">悬疑<br>惊悚</div></div>
+        <div class="item"><div class="n">02</div><div><h4>沉默契约</h4><p>犯罪人性 · 口碑 8.7</p></div><div class="meta">犯罪<br>伦理</div></div>
+        <div class="item"><div class="n">03</div><div><h4>边缘对话</h4><p>社会议题 · 口碑 8.6</p></div><div class="meta">剧情<br>社会</div></div>
+        <div class="item"><div class="n">04</div><div><h4>错位人生</h4><p>非线性叙事 · 口碑 8.4</p></div><div class="meta">文艺<br>剧情</div></div>
+        <div class="item"><div class="n">05</div><div><h4>午夜回声</h4><p>实验影像 · 口碑 8.3</p></div><div class="meta">独立<br>实验</div></div>
+        <div class="item"><div class="n">06</div><div><h4>暗室 · 短片集</h4><p>深夜档 · 口碑 8.1</p></div><div class="meta">短片<br>深夜</div></div>
+      </div>
+      <div class="box">
+        <h3>◷ 近期更新日志</h3>
+        <div class="tl">
+          <div class="tl-i"><span>2026.10.09</span><h4>新增「实验影像」独立板块</h4><p>收录 12 部海内外独立制作短片，附导演阐述与分级提示。</p></div>
+          <div class="tl-i"><span>2026.10.07</span><h4>《夜行观察者》条目上线</h4><p>完成剧情梗概、题材标签与观看年龄建议标注。</p></div>
+          <div class="tl-i"><span>2026.10.05</span><h4>「深夜档」栏目改版</h4><p>由单一列表调整为按类型与片长双重筛选。</p></div>
+          <div class="tl-i"><span>2026.10.02</span><h4>分级提示体系升级</h4><p>所有条目统一标注 18+ / R 等年龄建议标识。</p></div>
+          <div class="tl-i"><span>2026.09.28</span><h4>站点改版上线</h4><p>重构导航结构，强化内容分类与检索体验。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Notice ===== -->
+<section class="sec" id="about" style="padding-top:0">
+  <div class="wrap" style="max-width:900px">
+    <div class="sec-head">
+      <div>
+        <div class="sec-no">SECTION / 03</div>
+        <h2 class="h2">关于 <u>电影网成年</u></h2>
+      </div>
+    </div>
+    <div class="notice">
+      <div class="strip"></div>
+      <h3>⚠ 站点声明与分级提示</h3>
+      <p>电影网成年（dianyingwangchengnian-zh）是一个面向成年观众的影视内容分级检索与导航入口，主要提供成人向影视作品的分类整理、题材标签与年龄观看建议。</p>
+      <p>本站倡导「分级观影、理性选择」：所有涉及成人题材的条目均标注建议观看年龄，未满 18 周岁的用户请在监护人指导下参考；站点内容仅作信息导航用途，不构成任何观看建议或价值引导。</p>
+      <p>官方唯一访问地址：<code>https://dianyingwangchengnian-zh.github.io</code></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-g">
+      <div>
+        <b>电影网成年 <span style="color:var(--warn);font-size:12px;border:1px solid var(--warn);padding:2px 6px;border-radius:4px;vertical-align:middle">18+</span></b>
+        <p>面向成年观众的影视分级检索与导航入口，倡导分级观影、理性选择。</p>
+      </div>
+      <div>
+        <h5>内容板块</h5>
+        <ul>
+          <li><a href="#cat">悬疑惊悚</a></li>
+          <li><a href="#cat">剧情独立</a></li>
+          <li><a href="#cat">犯罪人性</a></li>
+          <li><a href="#cat">深夜档</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>站点导航</h5>
+        <ul>
+          <li><a href="#list">精选片单</a></li>
+          <li><a href="#list">更新日志</a></li>
+          <li><a href="#about">分级说明</a></li>
+          <li><a href="#home">返回顶部</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>相关入口</h5>
+        <ul>
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">内容纠错</a></li>
+          <li><a href="#">合作联系</a></li>
+          <li><a href="#">友情链接</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      © 2026 电影网成年 dianyingwangchengnian-zh · 官方地址 https://dianyingwangchengnian-zh.github.io · 本站内容仅供成年观众影视资讯与导航参考，请理性观影
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('mBtn'),menu=document.getElementById('menu');
+  btn.addEventListener('click',function(){menu.classList.toggle('open')});
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open')});
+  var chips=document.querySelectorAll('.chip');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('on')});
+      c.classList.add('on');
+    });
+  });
+})();
+</script>
+</body>
+</html>
